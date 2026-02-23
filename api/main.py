@@ -7,7 +7,6 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str | None = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/asset/{asset_type}")
+def read_asset(asset_type: str):
+    return {"asset_type": asset_type}
