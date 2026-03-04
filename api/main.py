@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from routers.quotes import router
 
 app = FastAPI()
 
@@ -7,6 +8,4 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/asset/{asset_type}")
-def read_asset(asset_type: str):
-    return {"asset_type": asset_type}
+app.include_router(router)
